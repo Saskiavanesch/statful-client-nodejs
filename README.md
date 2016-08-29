@@ -3,7 +3,15 @@ Statful Client for NodeJS
 
 [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/statful/statful-client-nodejs.svg?branch=master)](https://travis-ci.org/statful/statful-client-nodejs)
 
-Staful client for NodeJS written in Javascript. This client is intended to gather metrics and send them to Statful.
+Welcome!
+
+This document should provide you all the necessary information to get started (and to keep going) with Statful and NodeJS.
+This client is intended to gather your metrics and to send them to Statful.
+
+Still having questions or doubts, let us know at support@statful.com
+Want to learn more about building your own clients or integrate with Statful? contact us at developers@statful.com
+
+Statful client for NodeJS written in Javascript. 
 
 ## Table of Contents
 
@@ -29,7 +37,8 @@ $ npm install statful-client --save
 
 ## Quick start
 
-After installing Statful Client you are ready to use it. The quickest way is to do the following:
+Please instal Statful Client first, if you haven't done already. 
+Did that? Then you're ready to move on and use it. The quickest way to do so is the following:
 
 ```javascript
 var Statful = require('statful-client');
@@ -53,7 +62,7 @@ statful.counter('transactions', 1);
 
 ## Examples
 
-You can find here some useful usage examples of the Statful Client. In the following examples is assumed you have already installed and included Statful Client in your project.
+Check out below some useful usage examples of the Statful Client. In the following examples is assumed you have already installed and included Statful Client in your project.
 
 ### UDP Configuration
 
@@ -93,7 +102,7 @@ var statful = new Statful(config);
 
 ### Logger configuration
 
-Creates a simple client configuration and adds your favourite logger to the client like Bunyan, Winston or any other you want. **Just assure that logger object supports, at least, warn, debug and error methods**.
+Creates a simple client configuration and adds your favourite logger to the client like Bunyan, Winston or any other that you want. **Just assure that logger object supports, at least, warn, debug and error methods**.
 
 ```javascript
 var Statful = require('statful-client');
@@ -162,7 +171,7 @@ var statful = new Statful(config);
 
 ### Add metrics
 
-Creates a simple client configuration and use it to send some metrics.
+Creates a simple client configuration and you can use it to send several metrics.
 
 ```javascript
 var Statful = require('statful-client');
@@ -187,11 +196,11 @@ statful.counter('testCounter', 1, {tags: {host: 'localhost', status: 'SUCCESS'}}
 
 ## Reference
 
-Detailed reference if you want to take full advantage from Statful.
+Want to take full advantage of Statful? Check out the detailed references below:
 
 ### Global configuration
 
-The custom options that can be set on config param are detailed below.
+The following custom options can be set on config param:
 
 | Option | Description | Type | Default | Required |
 |:---|:---|:---|:---|:---|
@@ -227,10 +236,10 @@ The custom options that can be set on config param are detailed below.
 ```
 The methods for non aggregated metrics receive a metric name and a metric value as arguments and send a counter/gauge/timer/custom metric. 
 The methods for aggregated metrics receive a metric name, a metric value, an aggregation and an aggregation frequency (used previously to aggregate the metric) as arguments and send a counter/gauge/timer/custom metric.  
-If the options parameter is omitted, the default values are used. Those methods are truly valuable due to need of ingest already aggregated metrics into Statful (for example from AWS CloudWatch). 
-Read the methods options reference bellow to get more information about the default values.
+If the options parameter is omitted, the default values are used. Those methods are truly valuable due to the need of ingest already aggregated metrics into Statful (for example from AWS CloudWatch). 
+Read the methods options reference below to get more information about the default values.
 
-> **IMPORTANT:** You can only send aggregated metrics with `api` transport type. Otherwise metrics will be discarded and not be sent.
+> **IMPORTANT:** You can only send aggregated metrics with `api` transport type. If not done so, metrics will be discarded and therefore not be sent. 
 
 | Option | Description | Type | Default for Counter | Default for Gauge | Default for Timer | Default for Put | Available for Aggregated Methods |
 |:---|:---|:---|:---|:---|:---|:---|:---|
